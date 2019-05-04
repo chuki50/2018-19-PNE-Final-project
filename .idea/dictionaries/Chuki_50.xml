@@ -3,7 +3,10 @@
     <words>
       <w>chromo</w>
       <w>ensembl</w>
+      <w>exon</w>
       <w>karyotype</w>
+      <w>perc</w>
+      <w>sapiens</w>
     </words>
   </dictionary>
 </component>

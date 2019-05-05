@@ -1,0 +1,224 @@
+Welcome to Jaime's test report for the Basic Level!
+
+I'm going to go over the main endpoints, and through their parameters address the possible errors in each.
+(Shortcuts: [end6] line 7, [end7] line 65, [end8] line 109, [end9] line 150)
+
+
+6.- /geneSeq
+    6.1.- Endpoint: "/geneSeq"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneSeq</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>Gene Sequence page</h2>
+                    <p>Please, introduce a human gene to analyze:</p>
+                    <form action="geneSeq" method="get">
+                        Gene name: <input type="text" name="gene">
+                        <br>
+                        <input type="submit" value="SEND">
+                        <br><br>
+                    </form>
+
+    6.2.- Endpoint: "/geneSeq?gene=FRAT1"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneSeq</title>
+                    </head>
+                    <body>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <h2>Gene Sequence page</h2><p>The sequence of the gene FRAT1 is: ATTCCGGCTCCCGCGGCTGCAGGCGCGCGGCTAGAGTGCCTGGCGGGCTCCGGCTTCCGCGTCCGCCCCGGCCCCGGTCCAGACTTAGTCTTCAGCTCCGCGCCCGCTCCGCCGCGGCCCACCGCGCCCGCCGGCAGCCGAGCCCCCAGCGACGCCCGCACAGCTCCGGGTGCCCAGACAGGGGGCCATGCCGTGCCGGAGGGAGGAGGAAGAGGAAGCCGGCGAGGAGGCGGAGGGGGAGGAAGAGGAGGAGGACAGCTTCCTCCTACTGCAGCAGTCAGTGGCGCTGGGCAGCTCGGGCGAGGTGGACCGGCTGGTGGCCCAGATCGGCGAGACGCTGCAGCTGGACGCGGCGCAGCACAGCCCGGCCTCGCCGTGCGGGCCCCCGGGGGCGCCGCTGCGGGCCCCGGGGCCCCTGGCTGCGGCGGTGCCGGCGGACAAGGCCAGGTCCCCGGCGGTGCCGCTGCTGCTGCCGCCCGCGTTGGCGGAGACTGTGGGCCCGGCGCCCCCTGGGGTCCTGCGCTGCGCCCTGGGGGACCGCGGCCGCGTGCGGGGCCGCGCTGCGCCCTACTGCGTGGCCGAGCTCGCCACAGGCCCCAGCGCGCTGTCCCCACTGCCCCCTCAGGCCGACCTTGATGGGCCTCCGGGAGCTGGCAAGCAGGGCATCCCGCAGCCGCTGTCGGGTCCGTGCCGGCGAGGATGGCTCCGGGGCGCCGCCGCCTCCCGCCGCCTGCAGCAGCGACGCGGGTCCCAACCAGAAACCCGCACAGGCGACGACGACCCGCACCGGCTTCTGCAGCAGCTAGTGCTCTCTGGAAACCTCATCAAGGAGGCCGTGCGAAGGCTTCATTCGCGACGGCTGCAGTTACGTGCAAAGCTTCCCCAACGCCCGCTCCTGGGACCTCTGTCGGCCCCGGTGCATGAACCCCCTTCGCCTCGCAGCCCTCGCGCGGCCTGCAGTGACCCTGGCGCCTCCGGGAGGGCGCAGCTCAGAACTGGCGACGGCGTTCTTGTGCCTGGCAGCTAACACGCCCGGGGTGGCCACAGCGCCAGCCTCAGACTGGAGGGCAAGGGGTTCCCTTGAGGGCTGCAGTTCTACTCAGGCTGGTGGAGAACTCTGGCTTTTGGAAGCGAGAGTAAAAAGCTAATGACGAGGAACCGAAAAATCGCGAGTGTTTCGCGGGTAACTGGGGTTGAGGGCCAAAATATTTGGAATGAAGGACTTTGGCCCTATTTAAGGCAGATTTTACAGAGCGCACCTCAAACGTACAAGTCAGTAGGACTCCTTATTTGGCGTGACCCGACCTGGCCGCGGAGCCTGCATTTCCTCGCAGCCTCTCAGTGCCCTCCAGCCCCGCGACCATGTGGCCACAATCCACGCTTCTCCGGATCGCGGTGCGCCGGAACCACGGAGGATGATGCCAGTTACTTGCTTTACCTTTTCAGGGCTGGCTCCTGATCCACTTTGGGGGAGGAGAACATGAGTAGATAATTTCAGGGTGCAGCCCAATCTGCCAGACTTAAAAAAACCATCTTGTGTCTTTGGAGGTGCTGCTTAATACCAAACATGCGGTGCCATGAAGGGACCCTTTGGGGGTTGAATAGGAGTTAACCCCTGCGCTCTCTTTGCAACTGTCTCTCTTCTCAGAGTGGTGGGGGAAGGCTGTACGACACGGGTGGGGAAAGGAGGTGGGGGCGGGGAGTATTGAATGGTGGTGGAAGGGTAGAGAGGCGCGGAGTGAACCCCACGCCCTGTCTAAAGTGTATTTTCAGAGCCGGCCCGCCTCTCCTCGGTTCAAGGTCACTGTTTCCTGGGCACGCACTGGGTTGCGGGACAGAGTAGCCAGGTTCTGCCGGTGCTCGGAGAAGAGCGCAGTGTTTTGCAAGTGCTGGAGTCTCCTGAGGACACGCGCGTCGCCGCCACCGCGGGTGTGGGAAAGCGCGGACGTGCTGGGCGGCTGTGCTTCGGTAGGCGACCACCGCCCCTGGCCGCGCTCCGGGCTTTCACGGAAACTCCCGAGACCGGGCCCTGGGTTCCTCCTCTCCTACTCGGCTCTGCAGTCCTACTCAAGCGGGTGGCTCTGGGATCCTGGGGGCCTGGGTTGGGGGCTAGGGAGACGCCATGTGATGGACACTCCAGGGACACACAGCCTAGCACAGCAGCTTATAATGGGCTCTCCGGGGCCATTTGCAATAACAGCTGCAATTCCCTGGATAGACGAGTTGATTTCCTCCCTCTGCCCCTCCCCCAGCCATGCCAGCTGGCCTTTGTAAGTGCAGGAAACCGAGTAGAAAATGTGACCCTCCAAATGGAGAAGCTGCAGGCTTTGCCATTGTGAACCATGGTGAAGTGCTTGGAACATACTGTTCACTCACTCTAAAGGCGCTGAGACTGTGCTGTTGTTCTCGTTTTTATAGTCAATGGCTTGTTCATCATCCAGATGTGGCTACTGACATATCTACACTTCGCACCGGAGTGTCTGGAATTGTGGCTATCCTGATTATAGGATTTTAACTTAACTGAAATGCCTGCTTTGAATAAATGTGTTGGGTTTTTTGTTTGGTTTTATTTTATACTTGCCATCAGTGAAAAAGATGTACAGAACACATTTCTCTGATCTCCATAAACATGAAAACACTTGAAATCTC<p>
+
+    6.3.- Endpoint: "/geneSeq?gene="
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneSeq</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>An error occurred:</h2>
+                    <p> You haven't introduced a gene name.</p>
+
+    6.4.- Endpoint: "/geneSeq?gene=hello"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneSeq</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>An error occurred:</h2>
+                    <p> Sorry, we weren't able to find that gene. Please try again with another gene.</p>
+
+7.- /geneInfo
+    7.1.- Endpoint: "/geneInfo"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneInfo</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>Gene Information page</h2>
+                    <p>Please, introduce a human gene to analyze:</p>
+                    <form action="geneInfo" method="get">
+                        Gene name: <input type="text" name="gene">
+                        <br>
+                        <input type="submit" value="SEND">
+                        <br><br>
+                    </form>
+
+    7.2.- Endpoint: "/geneInfo?gene=FRAT1"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneInfo</title>
+                    </head>
+                    <body>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <h2>Gene Information page</h2>
+                    <h1>    Information provided:</h1>
+                    <p>          Start: 97319267<p>
+                    <p>            End: 97321915<p>
+                    <p>             ID: ENSG00000165879<p>
+                    <p>         Length: 2649<p>
+                    <p>     Chromosome: 10<p>
+
+    7.3.- Endpoint: "geneInfo?gene="
+            Output: Same as 6.3.
+
+    7.4.- Endpoint: "geneInfo?gene=hello"
+            Output: Same as 6.4
+
+8.- /geneCalc:
+    8.1.- Endpoint: "/geneCalc"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneCalc</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>Gene Calculations page</h2>
+                    <p>Please, introduce a human gene to analyze:</p>
+                    <form action="geneCalc" method="get">
+                        Gene name: <input type="text" name="gene">
+                        <br>
+                        <input type="submit" value="SEND">
+                        <br><br>
+                    </form>
+
+    8.2.- Endpoint: "/geneCalc?gene=FRAT1"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneCalc</title>
+                    </head>
+                    <body>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <h2>Gene Calculations page</h2><p>Length: 2649 bases<p>
+                    <p>Number of bases: A: 478  G: 849  C: 800  T: 522 <p>
+                    <p>Percentages of bases: A: 18%  G: 32%  C: 30%  T: 20% <p>
+
+    8.3.- Endpoint: "geneCalc?gene="
+            Output: Same as 6.3.
+
+    8.4.- Endpoint: "geneCalc?gene=hello"
+            Output: Same as 6.4
+
+
+9.- /geneList
+    9.1.- Endpoint: "/geneList"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneList</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>Gene List page</h2>
+                    <p>Introduce chromosome. Then, introduce the bounds for the genes (start, end):</p>
+                    <form action="geneList" method="get">
+                        Chromosome: <input type="text" name="chromo">
+                        <br>
+                        Start: <input type="text" name="start">
+                        <br>
+                        End: <input type="text" name="end">
+                        <br>
+                        <input type="submit" value="SEND">
+                        <br><br>
+                    </form>
+
+
+    9.2.- Endpoint: "geneList?chromo=12&start=14000&end=20000"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneList</title>
+                    </head>
+                    <body>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <h2>Gene List page</h2>
+                    <p>In the chromosome 12 and between 14000 and 20000 we find:<p>
+                    <p>ENSG00000226210<p>
+                    <p>ENST00000400706<p>
+                    <p>ENSE00003300244<p>
+                    <p>ENSE00003393022<p>
+                    <p>ENSE00003364750<p>
+                    <p>ENSE00003298411<p>
+                    <p>ENSE00003394647<p>
+                    <p>ENSE00003279047<p>
+                    <p>ENSE00003309126<p>
+                    <p>ENSE00003456481<p>
+                    <p>ENSE00002289810<p>
+                    <p>There are a total of 11 genes in between<p>
+
+    9.3.- Endpoint: "geneList?chromo=&start=14000&end=20000"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneList</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>An error occurred:</h2>
+                    <p> You haven't introduced a chromosome.</p>
+
+    9.4.- Endpoint: "geneList?chromo=one&start=14000&end=20000" or "geneList?chromo=12&start=fourteen_hundred&end=20000"
+            Output:
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>geneList</title>
+                    </head>
+                    <a href= "main_page.html">Back to the main page</a>
+                    <body>
+                    <h2>An error occurred:</h2>
+                    <p> Your start or end parameter is invalid, or you introduced an invalid chromosome.</p>

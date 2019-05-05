@@ -6,7 +6,7 @@ create have the first two letters as an identifier of them. For example, the fil
 the project have a "ls_" at the beginning.
 
 I'm first going to go over the main endpoints, and through their parameters address the possible errors in each.
-(Shortcuts: [end1] line 4, [end2] line 24, [end3] line 304, [end4] line 373, [end5] line 452)
+(Shortcuts: [end1] line 11, [end2] line 31, [end3] line 311, [end4] line 380, [end5] line 459)
 
 1.- Main menu.
         Endpoint: "" or "/"

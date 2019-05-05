@@ -34,7 +34,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(str.encode(main_contents))
 
         elif path.startswith('/listSpecies'):
-            # This resource allows us to obtain a list of species from the ensemble project.
+            # This option allows us to obtain a list of species from the ensemble project.
             # We can get all of them or just a few with the limit parameter
 
             # In order to connect to the server, we are going to need to use the requests resource.
@@ -245,6 +245,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(str.encode(cl_contents))
 
         elif path.startswith('/geneSeq'):
+            # This option allows us to obtain the whole sequence of a gene we decide.
+
             gs_main = open('gs_main.html', 'r')
             gs_menu = gs_main.read()
             gs_main.close()
@@ -254,6 +256,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             gs_response.close()
 
             if path == '/geneSeq?gene=':
+                # This error is returned if the gene is empty.
                 gs_error1 = open('gs_error1.html', 'r')
                 gs_contents = gs_error1.read()
                 gs_error1.close()
@@ -279,6 +282,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     gs_contents += str(seq) + '<p>'
 
                 except KeyError:
+                    # This will happen if the gene introduced isn't valid. It's quicker this way.
                     gs_error2 = open('gs_error2.html', 'r')
                     gs_contents = gs_error2.read()
                     gs_error2.close()
@@ -293,6 +297,9 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(str.encode(gs_contents))
 
         elif path.startswith('/geneInfo'):
+            # This option allows us to obtain the start and end point of a gene, and also the length, the ID and the
+            # chromosome it is in.
+
             gi_main = open('gi_main.html', 'r')
             gi_menu = gi_main.read()
             gi_main.close()
@@ -302,6 +309,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             gi_response.close()
 
             if path == '/geneInfo?gene=':
+                # As we did with geneSeq, this error is returned when the gene parameter is empty.
                 gs_error1 = open('gs_error1.html', 'r')
                 gi_contents = gs_error1.read()
                 gs_error1.close()
@@ -350,6 +358,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     gi_contents += '<p>' + '     Chromosome: ' + str(gene_chromo) + '<p>' + '\r\n'
 
                 except KeyError:
+                    # As we also did in geneSeq, this error is returned when the gene is invalid.
+
                     gs_error2 = open('gs_error2.html', 'r')
                     gi_contents = gs_error2.read()
                     gs_error2.close()
@@ -364,6 +374,9 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(str.encode(gi_contents))
 
         elif path.startswith('/geneCalc'):
+            # This option allows the user to analyze the percentages of the bases in the gene sequence of a gene that's
+            # given by the user.
+
             gc_main = open('gc_main.html', 'r')
             gc_menu = gc_main.read()
             gc_main.close()
@@ -373,6 +386,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             gc_response.close()
 
             if path == '/geneCalc?gene=':
+                # As we did with geneSeq and geneInfo, this error is returned when the gene parameter is empty.
                 gs_error1 = open('gs_error1.html', 'r')
                 gc_contents = gs_error1.read()
                 gs_error1.close()
@@ -421,6 +435,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     gc_contents += 'A: {}%  G: {}%  C: {}%  T: {}% '.format(a_perc, g_perc, c_perc, t_perc) + '<p>'
 
                 except KeyError:
+                    # Again, this error is returned when the gene  is invalid.
                     gs_error2 = open('gs_error2.html', 'r')
                     gc_contents = gs_error2.read()
                     gs_error2.close()
@@ -435,6 +450,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(str.encode(gc_contents))
 
         elif path.startswith('/geneList'):
+            # This option will tell us what genes are in a certain chromosome, and the user can introduce an upper and
+            # lower bound as limits.
             gl_main = open('gl_main.html', 'r')
             gl_menu = gl_main.read()
             gl_main.close()
@@ -444,6 +461,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             gl_response.close()
 
             if path.startswith('/geneList?chromo=&'):
+                # This error is returned when the chromosome is empty.
                 gl_error1 = open('gl_error1.html', 'r')
                 gl_contents = gl_error1.read()
                 gl_error1.close()
@@ -471,14 +489,17 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     data7 = r.json()
 
                     gl_contents += '<p>' + 'In the chromosome ' + str(chromo) + ' and between'
-                    gl_contents += 'genes {} and {}'.format(start, end) + ' we find:' + '<p>\r\n'
+                    gl_contents += ' {} and {}'.format(start, end) + ' we find:' + '<p>\r\n'
                     count = 0
                     for x in data7:
                         gl_contents += '<p>' + x['id'] + '<p>\r\n'
                         count += 1
 
                     gl_contents += '<p>' + 'There are a total of {} genes in between'.format(count) + '<p>\r\n'
+
                 except TypeError:
+                    # This error is return when the limit parameters are not numbers. It will also pop up if your
+                    # chromosome is not reachable or invalid.
                     gl_error2 = open('gl_error2.html', 'r')
                     gl_contents = gl_error2.read()
                     gl_error2.close()
@@ -486,6 +507,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             else:
                 gl_contents = gl_menu
 
+            print(gl_contents)
             self.send_response(200)
             self.send_header('Content-Type', 'text/html')
             self.send_header('Content-Length', len(str.encode(gl_contents)))

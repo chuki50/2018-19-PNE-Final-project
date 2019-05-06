@@ -376,7 +376,7 @@ I'm first going to go over the main endpoints, and through their parameters addr
                     <p>The species you introduced is invalid.
                         You can find the species name in the first option of the main page.
                         You can either go back to the main page or use the link below to go to the list resource.</p>
-                    <a href= "/listSpecies">Back to the main page</a>
+                    <a href= "/listSpecies">Go to the list species</a>
 4.- /chromosomeLength:
     4.1.- Endpoint = "/chromosomeLength"
             Output:

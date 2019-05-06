@@ -484,7 +484,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
                     server = "http://rest.ensembl.org"
                     ext_r = "/overlap/region/human/{}:{}-{}?".format(chromo, start, end)
-                    ext = ext_r + "feature=gene;feature=transcript;feature=cds;feature=exon"
+                    ext = ext_r + "feature=gene;" \
+                                  ""
                     r = requests.get(server + ext, headers={"Content-Type": "application/json"})
                     data7 = r.json()
 
@@ -492,8 +493,10 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     gl_contents += ' {} and {}'.format(start, end) + ' we find:' + '<p>\r\n'
                     count = 0
                     for x in data7:
-                        gl_contents += '<p>' + x['id'] + '<p>\r\n'
-                        count += 1
+                        type = x['feature_type']
+                        if type == 'gene':
+                            gl_contents += '<p>' + x['external_name'] + '<p>\r\n'
+                            count += 1
 
                     gl_contents += '<p>' + 'There are a total of {} genes in between'.format(count) + '<p>\r\n'
 
